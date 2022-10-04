@@ -1,5 +1,5 @@
 ---
-title: "DevStory #1: Time series for sports prediction market"
+title: "DevStories #1: Time series for sports prediction markets"
 author: Pei-Shan Wu
 author_title: QuestDB Team
 author_url: https://github.com/pswu11
@@ -15,9 +15,9 @@ image: /img/blog/2022-10-03/athletex-trade-view.png
 
 import Screenshot from "@theme/Screenshot"
 
-_This is a brand-new series: developer stories, for which we interviewed
-different developers in our community for their actual experience building with
-QuestDB. For the first post of this series, we interviewed Kevin Kamto,
+_This is a brand-new series: developr stories, for which we interviewed
+developers in our community for their actual experience building with QuestDB.
+For the first post of this series, we are trilled to interview Kevin Kamto,
 Co-founder at [AthleteX Markets](https://www.athletex.io/)._
 
 <!--truncate-->
@@ -39,16 +39,16 @@ to InfluxDB, one of the time series database pioneers at that time.
 
 This is the backstory: during the middle of COVID-19, there were a lot of
 markets seeing red. So we asked ourselves, what is an investor to do during this
-time? As someone who loves sports like soccer and basketball, I imagine that if
+time? As someone who loves sports like soccer and basketball, I thought that if
 I could put my money towards an athlete, I could keep it safe.
 
 :::note
 
-This blog post is not an investment advise. 😇
+This blog post is not investment advice. 😇
 
 :::
 
-The idea of AthleteX is that you can invest in the performance of your favourite
+The idea of AthleteX is that you can invest in the performance of your favorite
 athletes. Essentially, we created a fantasy sports prediction market. You can go
 to the platform to either long or short the performance of an athlete by trading
 the Athlete Performance Tokens (APTs). The price of an APT is based on an
@@ -95,8 +95,8 @@ smoothly.
 
 QuestDB is the core foundation of our entire backend infrastructure. Due to the
 feed-type nature of our application and the need to look up athlete stats very
-fast, we need a database to manage large time series data sets and provide fast
-queries time.
+fast, we need a database to manage large time series data sets while providing
+fast query speed.
 
 Our data providers have all the sports related data for each season, sport, and
 player. And we have some Python scripts to grab all the data periodically,

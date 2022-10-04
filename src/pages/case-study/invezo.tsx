@@ -6,6 +6,7 @@ import CodeBlock from "@theme/CodeBlock"
 import Layout from "../../theme/Layout"
 import { Image } from "../../components/Image"
 
+import caCss from "../../css/case-study/card.module.css"
 import juCss from "../../css/case-study/jumbotron.module.css"
 import seCss from "../../css/section.module.css"
 import { logos } from "../../assets/logos"
@@ -245,6 +246,25 @@ const Invezo = () => {
             excited about the upcoming cold storage integration with AWS S3,
             which should free a lot of space on our EBS volume.
           </p>
+
+          <div
+            className={clsx(
+              "markdown",
+              seCss["section--inner"],
+              seCss["section--column"],
+            )}
+          >
+            <p className={caCss.card__title}>
+              <span className={caCss.card__quote}>&ldquo;</span>
+              QuestDB is the backbone behind analytical capabilities at Invezo,
+              which aims to become Bloomberg for digital assets.
+              <span className={caCss.card__quote}>&rdquo;</span>
+            </p>
+
+            <p className={caCss.card__title}>
+              <strong>Emmett Miller, co-founder of Invezo</strong>
+            </p>
+          </div>
         </div>
       </section>
     </Layout>

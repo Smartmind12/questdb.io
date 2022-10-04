@@ -188,6 +188,34 @@ const Customer = () => {
 
       <section className={clsx(seCss.section, seCss["section--inner"])}>
         <div className={caCss.card}>
+          <p className={caCss.card__summary}>
+            <img
+              alt={logos.invezo.alt}
+              className={caCss.card__logo}
+              src={logos.invezo.src}
+              width={125}
+              height={22}
+            />
+            “QuestDB is the backbone behind analytical capabilities at Invezo,
+            which aims to become Bloomberg for digital assets.“
+            <em className={caCss.card__author}>
+              - <strong>Emmett Miller</strong>, co-founder of Invezo
+            </em>
+            <Button className={caCss.card__cta} to="/case-study/invezo/">
+              View full case study
+            </Button>
+          </p>
+          <div className={caCss.card__illustration}>
+            <img
+              alt="Copenhagen Atomics"
+              src="/img/pages/case-study/copenhagen-atomics/banner.png"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className={clsx(seCss.section, seCss["section--inner"])}>
+        <div className={caCss.card}>
           <div className={caCss.card__illustration}>
             <img
               alt="Copenhagen Atomics"

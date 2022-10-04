@@ -1,5 +1,5 @@
 ---
-title: "Developer story #1: Time series for sports prediction market"
+title: "DevStory #1: Time series for sports prediction market"
 author: Pei-Shan Wu
 author_title: QuestDB Team
 author_url: https://github.com/pswu11
@@ -8,8 +8,8 @@ description:
   This is a brand-new series for which we interviewed different developers in
   our community. For the post of this series, we interviewed Kevin Kamto,
   Co-founder at AthleteX Markets.
-keywords: []
-tags: []
+keywords: [blockchain, defi, crypto, timeseries, database, mlb, athletex]
+tags: [community, story, devstory, iot, crypto]
 image: /img/blog/2022-10-03/athletex-trade-view.png
 ---
 
@@ -37,14 +37,14 @@ to InfluxDB, one of the time series database pioneers at that time.
 
 ### Tell us more about AthleteX Markets, what is this project about?
 
-This is the backstory: During the middle of COVID-19, there were a lot of
+This is the backstory: during the middle of COVID-19, there were a lot of
 markets seeing red. So we asked ourselves, what is an investor to do during this
 time? As someone who loves sports like soccer and basketball, I imagine that if
 I could put my money towards an athlete, I could keep it safe.
 
 :::note
 
-This blog post is not an investment advise. 
+This blog post is not an investment advise. 😇
 
 :::
 
@@ -100,9 +100,10 @@ queries time.
 
 Our data providers have all the sports related data for each season, sport, and
 player. And we have some Python scripts to grab all the data periodically,
-calculate the book value based on the WAR formula, and store it in QuestDB.
-QuestDB is the base layer that allows us to handle this kind of throughput. At
-the moment, we're storing nearly 2 millions records in QuestDB.
+[calculate the book value based on the WAR formula](https://athletex-markets.gitbook.io/athletex-huddle/start-here/litepaper/apt-price-ids),
+and store it in QuestDB. QuestDB is the base layer that allows us to handle this
+kind of throughput. At the moment, we're storing nearly 2 millions records in
+QuestDB.
 
 Further down in the data pipeline, we built an API using Kotlin to query QuestDB
 and show the charts on our frontend. And from this point on, it's more about the
@@ -131,8 +132,8 @@ possible to do that directly since it's lacking a security layer or built-in
 authentication. We ended up writing our own API for this purpose.
 
 :::note
- 
-Notes from the QuestDB team: Since
+
+Insights from the QuestDB team: since
 [QuestDB 6.3](https://github.com/questdb/questdb/releases/tag/6.3), we
 implemented a new configuration `pg.security.readonly` to toggle the read-only
 mode for PGWire.
@@ -148,8 +149,8 @@ echoed correctly across all the replicas.
 
 We could also benefit a lot if QuestDB can work smoothly with Metabase or
 something similar to that. We've tried to create dashboards with Grafana but it
-doesn't appear to be as human friendly as Metabase, especially for the
-non-technical end users that we have.
+doesn't appear to be as human friendly as products like Metabase, especially for
+the non-technical end users that we have.
 
 ### Anything more you'd like to tell the readers?
 

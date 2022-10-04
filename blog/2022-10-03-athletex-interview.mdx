@@ -17,16 +17,17 @@ import Screenshot from "@theme/Screenshot"
 
 _This is a brand-new series: developer stories, for which we interviewed
 developers in our community for their actual experience building with QuestDB.
-For the first post of this series, we are thrilled to interview Kevin Kamto,
-Co-founder at [AthleteX Markets](https://www.athletex.io/)._
+For the first post of this series, we are thrilled to interview
+[Kevin Kamto](https://www.linkedin.com/in/kevin-kamto/), Co-founder at
+[AthleteX Markets](https://www.athletex.io/)._
 
 <!--truncate-->
 
 ### Hi Kevin, could you tell us more about yourself?
 
 My name is Kevin Kamto. I'm one of the core contributors and co-founders of
-AthleteX Markets. That means that on a day to day basis, I operate as the head of
-sales, and a point of coordination for the team.
+AthleteX Markets. That means that on a day to day basis, I operate as the head
+of sales, and a point of coordination for the team.
 
 ### How did you get to know time series databases in the first place?
 
@@ -77,7 +78,7 @@ associated"
 ### How is the use case related to time series databases?
 
 Using MLB (baseball) as an example, some in-game metrics such as bats and home
-runs are generated every minute or every five minute. We must store all that
+runs are generated every minute or every five minutes. We must store all that
 information over time. Coming from an IoT background, the problem is not new to
 me. So instead of going with something like MySQL or MongoDB, which didn't make
 a lot of sense, I knew that a time series database was what we needed.
@@ -136,7 +137,8 @@ authentication. We ended up writing our own API for this purpose.
 Insights from the QuestDB team: since
 [QuestDB 6.3](https://github.com/questdb/questdb/releases/tag/6.3), we
 implemented a new configuration `pg.security.readonly` to toggle the read-only
-mode for PGWire.
+mode for PGWire. Similarily, the existing `http.security.readonly` can be
+applied to the web console.
 
 :::
 

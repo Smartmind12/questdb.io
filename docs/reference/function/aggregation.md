@@ -366,6 +366,37 @@ FROM (SELECT x FROM long_sequence(100));
 | :-------------- |
 | 29.011491975882 |
 
+## row_number
+
+`row_number() over(partition by [partition_expression1, partition_expression2], order by sort_expression1 [ASC | DESC]) as row_num` - returns the sequential number of a row within a partition of a result set, starting at number 1 for first row in each partition.
+
+**Arguments:**
+- `partition by` is a clause that divides the result set into partitions(group of rows) .
+- `order by` is a clause defines the logical order of the rows within each partition of the result set.
+
+:::note
+
+`partition by` clause is optional. If skipped then row_number() function will conside the result to be a single partition.
+
+:::
+
+**Return value:**
+
+Return value type is `bigint`.
+
+**Examples:**
+```questdb-sql title="Display using person name in sequential order"
+SELECT person_name,product,amount,
+   row_number() over(order by person_name) as row_num
+FROM table
+```
+| row_num | person_name | product | amount |
+| :------ | :---------- | :------ | :----- |
+| 1.      | Andrew      | Oranges | 50     |
+| 2.      | Mark        | Apples  | 25     |
+| 3.      | Shannel     | Bananas | 42     |
+
+
 ## sum
 
 `sum(value)` - adds values ignoring missing data (e.g `null` values).

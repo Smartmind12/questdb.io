@@ -385,28 +385,29 @@ Return value type is `long`.
 - `PARTITION BY` is an optional clause that divides the result set into partitions(group of rows). If skipped then row_number() function will conside the result to be a single partition.
 
 **Examples:**
-```questdb-sql title="Using `row_number()` to display names in a sequential order"
-SELECT person_name,product,amount,
-   row_number() OVER(ORDER BY person_name) AS row_num
-FROM table
+```questdb-sql title="Using `row_number()` to display amount in a sequential order"
+SELECT symbol,side,price,
+   row_number() OVER(ORDER BY amount) AS row_num
+FROM trades;
 ```
-| row_num | person_name | product | amount |
-| :------ | :---------- | :------ | :----- |
-| 1.      | Andrew      | Oranges | 50     |
-| 2.      | Mark        | Apples  | 25     |
-| 3.      | Shannel     | Bananas | 42     |
+| row_num | symbol    | side   | price    | amount   |
+| :------ | :-------- | :----- | :------- | :------- |
+| 1.      | ETH-USD   | Sell   |  2615.54 |  0.00044 |
+| 2.      | BTC-USD   | Sell   | 39269.98 |  0.001   |
+| 1.      | ETH-USD   | Buy    |  2615.40 |  0.002   |
+| 2.      | BTC-USD   | Buy    | 39268.89 |  0.00874 |
 
-```questdb-sql title="Using `row_number() OVER(PARTITION BY[], ORDER BY [])` to display names in a sequential order according to alphabetical sequence of country name"
-SELECT person_name,product,amount,
-   row_number() OVER(PARTITION BY country_name, ORDER BY person_name) AS row_num
-FROM table
+```questdb-sql title="Using `row_number() OVER(PARTITION BY[], ORDER BY [])` to display trade symbols in a sequential order according to ascending sequence of price"
+SELECT symbol,side,price,amount,
+   row_number() OVER(PARTITION BY symbol, ORDER BY price) AS row_num
+FROM trades;
 ```
-| row_num | country_name | person_name | product | amount |
-| :------ | :----------- | :---------- | :------ | :----- |
-| 1.      | England      | Andrew      | Oranges | 50     |
-| 2.      | England      | Shannel     | Bananas | 42     |
-| 1.      | United States| Cathy       | Mangoes | 75     |
-| 2.      | United States| Mark        | Apples  | 25     |
+| row_num | symbol    | side   | price    | amount  |
+| :------ | :-------- | :----- | :------- | :------ |
+| 1.      | BTC-USD   | Buy    | 39268.89 | 0.00874 |
+| 2.      | BTC-USD   | Sell   | 39269.98 | 0.001   |
+| 1.      | ETH-USD   | Buy    |  2615.40 | 0.002   |
+| 2.      | ETH-USD   | Sell   |  2615.54 | 0.00044 |
 
 ## sum
 

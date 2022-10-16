@@ -368,7 +368,7 @@ FROM (SELECT x FROM long_sequence(100));
 
 ## row_number
 
-`row_number()` - returns a unique row number for each row in the result.
+`row_number()` - returns a unique row number for each row in the result. It is a sequence of temporary values which is dynamically calculated when then the query is executed. Hence, it has a non-deterministic nature. 
 
 **Arguments:**
 
@@ -382,14 +382,13 @@ Return value type is `long`.
 
 `row_number() OVER(PARTITION BY [partition_expression1, partition_expression2], ORDER BY sort_expression1 [ASC | DESC]) as [row_num]` - returns the sequential number of a row within a partition of a result set, starting at number 1 for the first row in each partition.
 
-- `row_number` is a non-deterministic value and it is a sequence of temporary values which is calculated dynamically when then the query is executed. 
 - If there are duplicate tuples for the combination of `partitioning` and `order by` columns list, then the function can assign the row numbers in any order for such duplicates leading to non-deterministic results.
 - Since the rows are returned dynamically, there is no guarantee that the rows returned will be ordered exactly the same with each execution of the query. Hence SQL keywords such as `OVER` & `PARTITION BY` are specified to set unique parameters and organise the row indexing.
 - `OVER()` function is used to specify the set of rows upon which the window function operates depending on the parameters input to arrange the table in a logical manner basis the parameters set.
 
 **Examples:**
 
-questdb-sql title="Using `row_number()` for Crypto-Coin tracking to arrange the table in a sequential manner to depict the transaction history & order these transactions in respect with lowest to highest amount of coins traded"
+"Using `row_number()` for "trades" to arrange the table in a sequential manner to depict the transaction history & order these transactions in respect with lowest to highest amount of coins traded"
 
 ```questdb-sql
 SELECT symbol,side,price,
@@ -404,11 +403,11 @@ FROM trades;
 | 1.      | ETH-USD   | Buy    |  2615.40 |  0.002   |
 | 2.      | BTC-USD   | Buy    | 39268.89 |  0.00874 |
 
-questdb-sql title= "Using `row_number() OVER(PARTITION BY[], ORDER BY [])` for Crypto-Coin tracking to alphabetically partition the list on basis of trade symbols and arrange transactions in a sequential order according to lowest to highest price for trading of each symbol"
+"Using `row_number() OVER(PARTITION BY[], ORDER BY [])` for "trades" to alphabetically partition the list on basis of trade symbols and arrange transactions in a sequential order according to lowest to highest price for trading of each symbol"
 
 ```questdb-sql
 SELECT symbol,side,price,amount,
-   row_number() OVER(PARTITION BY symbol, ORDER BY price) AS row_num
+   row_number() OVER(PARTITION BY symbol ORDER BY price) AS row_num
 FROM trades;
 ```
 

@@ -391,7 +391,7 @@ Return value type is `long`.
 Using `row_number()` for "trades" to arrange the table in a sequential manner to depict the transaction history and order these transactions in respect with lowest to highest amount of coins traded.
 
 ```questdb-sql
-SELECT symbol,side,price,
+SELECT symbol,side,price,amount,
    row_number() OVER(ORDER BY amount) AS row_num
 FROM trades;
 ```

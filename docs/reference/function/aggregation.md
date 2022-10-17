@@ -388,7 +388,7 @@ Return value type is `long`.
 
 **Examples:**
 
-"Using `row_number()` for "trades" to arrange the table in a sequential manner to depict the transaction history & order these transactions in respect with lowest to highest amount of coins traded"
+Using `row_number()` for "trades" to arrange the table in a sequential manner to depict the transaction history and order these transactions in respect with lowest to highest amount of coins traded.
 
 ```questdb-sql
 SELECT symbol,side,price,
@@ -403,7 +403,7 @@ FROM trades;
 | 1.      | ETH-USD   | Buy    |  2615.40 |  0.002   |
 | 2.      | BTC-USD   | Buy    | 39268.89 |  0.00874 |
 
-"Using `row_number() OVER(PARTITION BY[], ORDER BY [])` for "trades" to alphabetically partition the list on basis of trade symbols and arrange transactions in a sequential order according to lowest to highest price for trading of each symbol"
+Using `row_number() OVER(PARTITION BY[], ORDER BY [])` for "trades" to alphabetically partition the list on basis of trade symbols and arrange transactions in a sequential order according to lowest to highest price for trading of each symbol.
 
 ```questdb-sql
 SELECT symbol,side,price,amount,

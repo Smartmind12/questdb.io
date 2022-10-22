@@ -388,35 +388,20 @@ Return value type is `long`.
 
 **Examples:**
 
-Using `row_number()` for "trades" to arrange the table in a sequential manner to depict the transaction history and order these transactions in respect with lowest to highest amount of coins traded.
+Using `row_number() OVER(PARTITION BY[], ORDER BY [])` for "trades" to partition the list on basis of trade symbols and arrange transactions in a sequential order according to lowest to highest price for trading of each symbol for a specific period of time/day through `dateadd` function.
 
 ```questdb-sql
-SELECT symbol,side,price,amount,
-   row_number() OVER(ORDER BY amount) AS row_num
-FROM trades;
+SELECT symbol,side,price,amount, row_number() OVER(PARTITION BY symbol ORDER BY price) AS row_num
+FROM trades
+where timestamp > dateadd('d', -1, now())
+ORDER BY row_num ASC;
 ```
-
-| row_num | symbol    | side   | price    | amount   |
-| :------ | :-------- | :----- | :------- | :------- |
-| 1.      | ETH-USD   | Sell   |  2615.54 |  0.00044 |
-| 2.      | BTC-USD   | Sell   | 39269.98 |  0.001   |
-| 1.      | ETH-USD   | Buy    |  2615.40 |  0.002   |
-| 2.      | BTC-USD   | Buy    | 39268.89 |  0.00874 |
-
-Using `row_number() OVER(PARTITION BY[], ORDER BY [])` for "trades" to alphabetically partition the list on basis of trade symbols and arrange transactions in a sequential order according to lowest to highest price for trading of each symbol.
-
-```questdb-sql
-SELECT symbol,side,price,amount,
-   row_number() OVER(PARTITION BY symbol ORDER BY price) AS row_num
-FROM trades;
-```
-
-| row_num | symbol    | side   | price    | amount  |
-| :------ | :-------- | :----- | :------- | :------ |
-| 1.      | BTC-USD   | Buy    | 39268.89 | 0.00874 |
-| 2.      | BTC-USD   | Sell   | 39269.98 | 0.001   |
-| 1.      | ETH-USD   | Buy    |  2615.40 | 0.002   |
-| 2.      | ETH-USD   | Sell   |  2615.54 | 0.00044 |
+| symbol    | side   | price    | amount     | row_num |
+| :-------- | :----- | :------- | :--------- | :------ |
+| BTC-USD   | Sell   |    18659 | 0.10904633 | 0       |
+| ETH-USD   | Sell   |     1254 | 0.318      | 0       |
+| BTC-USD   | Sell   |    18659 | 0.13572085 | 1       |
+| ETH-USD   | Sell   |     1254 | 3.56037485 | 1       |
 
 ## sum
 

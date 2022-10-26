@@ -128,10 +128,10 @@ SELECT name, right('Thompson', 2) r FROM names LIMIT 3
 | AMELIE | IE  |
 | TOM    | OM  |
 
-## strpos
+## strpos / position
 
-`strpos(string, substring)` - searches for a substring in a string, and returns
-the position. If the substring is not found, this function returns `0`. The
+`strpos(string, substring)` or `position(string, substring)` - searches for the first substring occurrence in a string, and returns
+the index position of the starting character. If the substring is not found, this function returns `0`. The
 performed search is case-sensitive.
 
 **Arguments:**
@@ -146,7 +146,14 @@ Returns an integer for the substring position. Positions start from `1`.
 **Examples:**
 
 ```questdb-sql title="Example"
-SELECT name, strpos(name, 'Thompson') idx FROM full_names LIMIT 4
+SELECT name, strpos(name, 'Thompson') idx 
+FROM full_names 
+LIMIT 4;
+
+-- This is equal to:
+SELECT name, position(name, 'Thompson') idx 
+FROM full_names 
+LIMIT 4;
 ```
 
 | name          | idx |
@@ -164,8 +171,8 @@ Assuming we have a table `example_table` with a single string type column `col`:
 | cat,dog    |
 | ...        |
 
-As a more advanced example, we can use `strpos()` to split the string values of
-`col`, in this case splitting at the comma `,` character. By using
+As a more advanced example, we can use `strpos()` or `position()` to split the string values of
+`col`, in this case splitting at the comma character, `,` . By using
 `left()`/`right()` functions, we can choose the string values at the left and
 right of the comma:
 
@@ -173,6 +180,13 @@ right of the comma:
 SELECT col,
        left(col, strpos(col, ',') - 1) as col1,
        right(col, length(col) - strpos(col, ',')) as col2
+FROM example_table;
+
+-- This is equal to:
+
+SELECT col,
+       left(col, position(col, ',') - 1) as col1,
+       right(col, length(col) - position(col, ',')) as col2
 FROM example_table;
 ```
 
@@ -226,10 +240,52 @@ SELECT substring('Lorem ipsum dolor sit amet', -5, 9)
 | --------- |
 | Lor       |
 
-## to_lowercase
+## to_lowercase / lower
 
-`to_lowercase(string)` - converts all string characters to lowercase
+- `to_lowercase(string)` or `lower(string)` - converts all upper case string
+  characters to lowercase
 
-## to_uppercase
+### Arguments
 
-`to_uppercase(string)` - converts all string characters to uppercase
+`string` is the input strong to be converted.
+
+### Return value
+
+Return value type is `string`.
+
+### Examples
+
+```questdb-sql
+SELECT lower('questDB');
+-- This is equal to:
+SELECT to_lowercase('questDB');
+```
+
+| to_lowercase |
+| ------------ |
+| questdb      |
+
+## to_uppercase / upper
+
+- `to_uppercase(string)` or `upper(string)` - converts all lower case string
+  characters to uppercase
+
+### Arguments
+
+`string` is the input strong to be converted.
+
+### Return value
+
+Return value type is `string`.
+
+### Examples
+
+```questdb-sql
+SELECT upper('questDB');
+-- This is equal to:
+SELECT to_uppercase('questDB');
+```
+
+| to_uppercase |
+| ------------ |
+| QUESTDB      |

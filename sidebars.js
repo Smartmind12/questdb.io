@@ -38,6 +38,7 @@ module.exports = {
         "get-started/binaries",
         "get-started/homebrew",
         "get-started/first-database",
+        "get-started/learn-more",
       ],
     },
     {
@@ -48,7 +49,6 @@ module.exports = {
         "develop/insert-data",
         "develop/query-data",
         "develop/update-data",
-        "develop/design-for-performance",
         "develop/web-console",
       ],
     },
@@ -77,6 +77,7 @@ module.exports = {
       label: "Operations",
       type: "category",
       items: [
+        "operations/design-for-performance",
         "operations/capacity-planning",
         "operations/data-retention",
         "operations/health-monitoring",
@@ -182,14 +183,21 @@ module.exports = {
               label: "ALTER TABLE",
               items: [
                 "reference/sql/alter-table-add-column",
-                "reference/sql/alter-table-alter-column-add-index",
-                "reference/sql/alter-table-alter-column-drop-index",
                 "reference/sql/alter-table-rename-column",
                 "reference/sql/alter-table-drop-column",
                 "reference/sql/alter-table-attach-partition",
                 "reference/sql/alter-table-detach-partition",
                 "reference/sql/alter-table-drop-partition",
                 "reference/sql/alter-table-set-param",
+              ],
+            },
+            {
+              type: "category",
+              label: "ALTER COLUMN",
+              items: [
+                "reference/sql/alter-table-alter-column-add-index",
+                "reference/sql/alter-table-alter-column-drop-index",
+                "reference/sql/alter-table-alter-column-cache",
               ],
             },
             "reference/sql/backup",

@@ -16,14 +16,13 @@ usage guides, and reference documentation for syntax, APIs and configuration.
 This section explains how to install and run QuestDB using one of the following
 methods:
 
-- [Docker](/docs/get-started/docker) for repeatable, portable and scalable
+- [Docker](/docs/get-started/docker/) for repeatable, portable and scalable
   installations
-- [Binaries](/docs/get-started/binaries) for direct downloads to run on Linux,
+- [Binaries](/docs/get-started/binaries/) for direct downloads to run on Linux,
   macOS or Windows
-- [Homebrew](/docs/get-started/homebrew) for running QuestDB on macOS
-
-Once QuestDB is running, a guide is provided to
-[create your first database](/docs/get-started/first-database).
+- [Homebrew](/docs/get-started/homebrew/) for running QuestDB on macOS
+- [Create your first database](/docs/get-started/first-database/) provides a guide for once QuestDB is running
+- [Learn more](/docs/get-started/learn-more/) is a selection of useful concepts and guides for new QuestDB users
 
 ## Develop
 
@@ -36,8 +35,7 @@ programming languages through our various network endpoints.
   PostgreSQL wire protocol or our HTTP REST API
 - [Query data](/docs/develop/query-data) with SQL queries via the PostgreSQL
   Wire Protocol or exported to JSON or CSV via our HTTP REST API
-- [Design for performance](/docs/develop/design-for-performance) for configuring
-  table settings to improve performance
+
 - [Web Console](/docs/develop/web-console) for quick SQL queries, charting and
   CSV upload/export functionality
 
@@ -61,6 +59,8 @@ programming languages through our various network endpoints.
 This section contains resources for managing QuestDB instances and has dedicated
 pages for the following topics:
 
+- [Design for performance](/docs/operations/design-for-performance) for configuring
+  table settings to improve performance
 - [Capacity planning](/docs/operations/capacity-planning) for configuring
   server settings and system resources
 - [Data retention](/docs/operations/data-retention) strategy to delete old data
@@ -167,14 +167,15 @@ can be used in QuestDB.
 - [SQL Execution order](/docs/reference/sql/datatypes)
 - [Data types](/docs/reference/sql/datatypes)
 - [ALTER TABLE ADD COLUMN](/docs/reference/sql/alter-table-add-column)
-- [ALTER TABLE ALTER COLUMN ADD INDEX](/docs/reference/sql/alter-table-alter-column-add-index)
-- [ALTER TABLE ALTER COLUMN DROP INDEX](/docs/reference/sql/alter-table-alter-column-drop-index)
 - [ALTER TABLE RENAME COLUMN](/docs/reference/sql/alter-table-rename-column)
 - [ALTER TABLE DROP COLUMN](/docs/reference/sql/alter-table-drop-column)
 - [ALTER TABLE ATTACH PARTITION](/docs/reference/sql/alter-table-attach-partition)
 - [ALTER TABLE DETACH PARTITION](/docs/reference/sql/alter-table-detach-partition)
 - [ALTER TABLE DROP PARTITION](/docs/reference/sql/alter-table-drop-partition)
 - [ALTER TABLE SET PARAM](/docs/reference/sql/alter-table-set-param)
+- [ALTER TABLE ALTER COLUMN ADD INDEX](/docs/reference/sql/alter-table-alter-column-add-index)
+- [ALTER TABLE ALTER COLUMN DROP INDEX](/docs/reference/sql/alter-table-alter-column-drop-index)
+- [ALTER TABLE ALTER COLUMN CACHE | NOCACHE](/docs/reference/sql/alter-table-alter-column-cache)
 - [BACKUP](/docs/reference/sql/backup)
 - [CASE](/docs/reference/sql/case)
 - [CAST](/docs/reference/sql/cast)
@@ -218,4 +219,4 @@ following channels:
 - [Raise an issue on GitHub]({@githubUrl@}/issues)
 - [Join the Community Slack]({@slackUrl@})
 - [QuestDB on Stack Overflow]({@stackoverflowUrl@})
-- or send us an email at [hello@questdb.io](mailto:hello@questdb.io)
+- or email us at [hello@questdb.io](mailto:hello@questdb.io)

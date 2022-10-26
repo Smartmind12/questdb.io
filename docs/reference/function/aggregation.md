@@ -382,8 +382,7 @@ Return value type is `long`.
 
 `row_number() OVER(PARTITION BY [partition_expression1, partition_expression2], ORDER BY sort_expression1 [ASC | DESC]) as [row_num]` - returns the sequential number of a row within a partition of a result set, starting at number 1 for the first row in each partition.
 
-- If there are duplicate tuples for the combination of `partitioning` and `order by` columns list, then the function can assign the row numbers in any order for such duplicates leading to non-deterministic results.
-- Since the rows are returned dynamically, there is no guarantee that the rows returned will be ordered exactly the same with each execution of the query. Hence SQL keywords such as `OVER` & `PARTITION BY` are specified to set unique parameters and organise the row indexing.
+- Since the rows are returned dynamically, there is no guarantee that the rows returned will be ordered exactly the same with each execution of the query. Hence SQL keywords such as `OVER` and `PARTITION BY` are specified to set unique parameters and organise the row indexing.
 - `OVER()` function is used to specify the set of rows upon which the window function operates depending on the parameters input to arrange the table in a logical manner basis the parameters set.
 
 **Examples:**
